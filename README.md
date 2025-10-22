@@ -4,6 +4,7 @@ A lightweight SwiftUI counter app that demonstrates how to build a minimal iOS e
 
 ## Features
 - Increment, decrement (non-negative), and reset actions for the counter value
+- Automatically persists the counter between launches using `UserDefaults`
 - Accessible controls using identifiers for UI testing
 - Uses SwiftUI's `NavigationStack` and modern styling
 
@@ -11,6 +12,7 @@ A lightweight SwiftUI counter app that demonstrates how to build a minimal iOS e
 ```
 SimpleCounterApp/
 ├── ContentView.swift         // SwiftUI view hierarchy
+├── CounterStorage.swift      // Persistence abstraction & implementations
 ├── CounterViewModel.swift    // ObservableObject providing counter logic
 └── SimpleCounterApp.swift    // Application entry point
 ```

@@ -52,6 +52,11 @@ struct ContentView: View {
     }
 }
 
-#Preview {
+#Preview("Default") {
     ContentView(viewModel: CounterViewModel())
+}
+
+#Preview("Sample Data") {
+    let storage = InMemoryCounterStorage(initialValue: 42)
+    return ContentView(viewModel: CounterViewModel(title: "Preview Steps", storage: storage))
 }

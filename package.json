@@ -1,0 +1,10 @@
+{
+  "name": "simple-counter-pwa",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A lightweight counter Progressive Web App with offline support and automated tests.",
+  "scripts": {
+    "start": "node scripts/dev-server.js",
+    "test": "node tests/run-tests.js"
+  }
+}

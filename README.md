@@ -1,28 +1,44 @@
-# SimpleCounterApp
+# Simple Counter PWA
 
-A lightweight SwiftUI counter app that demonstrates how to build a minimal iOS experience without relying on Xcode templates. The view layer is powered by `ContentView`, while `CounterViewModel` owns the state and business logic.
+A lightweight Progressive Web App counter experience that offers installability, offline support, and persistent state without any native platform dependencies.
 
 ## Features
-- Increment, decrement (non-negative), and reset actions for the counter value
-- Automatically persists the counter between launches using `UserDefaults`
-- Accessible controls using identifiers for UI testing
-- Uses SwiftUI's `NavigationStack` and modern styling
+- Instant feedback for increment, decrement (non-negative), and reset interactions
+- Persists the counter value in `localStorage` so the number survives refreshes and offline sessions
+- Installable on desktop and mobile devices via the included web manifest
+- Offline capable with a service worker that precaches the application shell
+- Automated test that validates the core counter behaviour without third-party tooling
 
 ## Project Structure
 ```
-SimpleCounterApp.xcodeproj    // Xcode project file
-SimpleCounterApp/             // App sources & resources
-├── Assets.xcassets           // Image & color assets
-├── ContentView.swift         // SwiftUI view hierarchy
-├── CounterStorage.swift      // Persistence abstraction & implementations
-├── CounterViewModel.swift    // ObservableObject providing counter logic
-├── Preview Content/          // SwiftUI preview assets
-└── SimpleCounterApp.swift    // Application entry point
+pwa/
+├── icons/                 # App icon used by the web manifest
+├── index.html             # Application shell and UI markup
+├── manifest.webmanifest   # Installability metadata
+├── scripts/app.js         # Counter state management & service worker registration
+├── service-worker.js      # Offline cache implementation
+└── styles/app.css         # Visual styling
+scripts/
+└── dev-server.js          # Lightweight static file server for local development
+tests/
+└── run-tests.js           # Mocked DOM smoke test for the counter interactions
+package.json               # Tooling and automated scripts
 ```
 
 ## Getting Started
-1. Open `SimpleCounterApp.xcodeproj` in Xcode 15 or newer.
-2. Update the bundle identifier and signing team in **Targets ▸ SimpleCounterApp ▸ Signing & Capabilities**.
-3. Choose an iOS simulator (iOS 16.0 or later) and press **Run**.
 
-The project uses an automatically generated Info.plist and modern SwiftUI app lifecycle, so no additional setup is required.
+1. Install dependencies (none are required, but this keeps npm happy):
+   ```bash
+   npm install
+   ```
+2. Run the automated test to validate the counter behaviour:
+   ```bash
+   npm test
+   ```
+3. Start the local development server:
+   ```bash
+   npm run start
+   ```
+4. Open the application at the URL printed in the terminal (typically http://localhost:3000). Add it to your home screen or install it through your browser to experience the PWA flow.
+
+The project is framework-free and ships plain HTML/CSS/JavaScript so you can host it on any static file server.

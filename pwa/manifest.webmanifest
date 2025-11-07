@@ -1,0 +1,17 @@
+{
+  "name": "Simple Counter PWA",
+  "short_name": "Counter",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#1f2937",
+  "description": "A minimal offline-ready counter experience built as a Progressive Web App.",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
